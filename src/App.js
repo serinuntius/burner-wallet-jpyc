@@ -14,10 +14,17 @@ function App() {
     network: '100',
     address: '0x417602f4fbdd471A431Ae29fB5fe0A681964C11b',
   });
+  const hmty = new ERC20Asset({
+    id: 'HMty',
+    name: 'HMty',
+    network: '100',
+    address: '0xE2931876A8cD0bc76A7114CFaA8232eF983532a3',
+  });
+
   const core = new BurnerCore({
     signers: [new InjectedSigner(), new LocalSigner()],
     gateways: [new InfuraGateway(process.env.REACT_APP_INFURA_KEY), new XDaiGateway()],
-    assets: [xdai, dai, eth, jpyc],
+    assets: [xdai, dai, eth, jpyc, hmty],
   });
 
   return (

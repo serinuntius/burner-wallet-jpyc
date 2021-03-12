@@ -8,7 +8,7 @@ import ModernUI from "@burner-wallet/modern-ui";
 require('dotenv').config();
 
 function App() {
-  const bos = new ERC20Asset({
+  const jpyc = new ERC20Asset({
     id: 'JPYC',
     name: 'JPY Coin',
     network: '100',
@@ -17,7 +17,7 @@ function App() {
   const core = new BurnerCore({
     signers: [new InjectedSigner(), new LocalSigner()],
     gateways: [new InfuraGateway(process.env.REACT_APP_INFURA_KEY), new XDaiGateway()],
-    assets: [xdai, dai, eth, bos],
+    assets: [xdai, dai, eth, jpyc],
   });
 
   return (

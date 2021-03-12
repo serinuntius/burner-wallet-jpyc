@@ -24,7 +24,7 @@ function App() {
   const core = new BurnerCore({
     signers: [new InjectedSigner(), new LocalSigner()],
     gateways: [new InfuraGateway(process.env.REACT_APP_INFURA_KEY), new XDaiGateway()],
-    assets: [xdai, dai, eth, jpyc, hmty],
+    assets: [hmty, jpyc, xdai, dai, eth],
   });
 
   return (

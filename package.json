@@ -1,5 +1,5 @@
 {
-  "name": "my-wallet",
+  "name": "jpyc-burner-wallet",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

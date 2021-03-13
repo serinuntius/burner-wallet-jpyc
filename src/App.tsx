@@ -5,6 +5,10 @@ import {LocalSigner} from "@burner-wallet/core/signers";
 import {InfuraGateway, XDaiGateway} from "@burner-wallet/core/gateways";
 import { xdai, dai, eth, ERC20Asset } from '@burner-wallet/assets';
 import ModernUI from "@burner-wallet/modern-ui";
+import LinksPlugin from "./LinkPlugin";
+// import LegacyPlugin from '@burner-wallet/legacy-plugin';
+
+import React from 'react';
 require('dotenv').config();
 
 function App() {
@@ -22,7 +26,7 @@ function App() {
   });
 
   const core = new BurnerCore({
-    signers: [new InjectedSigner(), new LocalSigner()],
+    signers: [new LocalSigner()],
     gateways: [new InfuraGateway(process.env.REACT_APP_INFURA_KEY), new XDaiGateway()],
     assets: [hmty, jpyc, xdai, dai, eth],
   });
@@ -31,6 +35,7 @@ function App() {
     <div className="App">
       <ModernUI
           core={core}
+          plugins={[new LinksPlugin()]}
       />
     </div>
   );
